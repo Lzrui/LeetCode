@@ -1,0 +1,6 @@
+# ninja log v5
+3	185	6706148640739025	build.ninja	78778d89a3aafe7b
+0	359	6706148644472702	CMakeFiles/leetcode.dir/array/hello_word.cpp.obj	19df2d066edb0f1
+362	519	6706148646054707	leetcode.exe	c72068b4a39e093c
+3	354	6706149843788842	CMakeFiles/leetcode.dir/array/hello_word.cpp.obj	19df2d066edb0f1
+354	493	6706149845105280	leetcode.exe	c72068b4a39e093c
