@@ -1,10 +1,5 @@
 # ninja log v5
-3	185	6707484798368719	build.ninja	78778d89a3aafe7b
-356	558	6706157884912751	leetcode.exe	c72068b4a39e093c
+3	185	6707592008639684	build.ninja	78778d89a3aafe7b
+424	566	6707577951971889	leetcode.exe	335d9a2412a40abf
 3	355	6706157883223272	CMakeFiles/leetcode.dir/array/hello_word.cpp.obj	19df2d066edb0f1
-0	399	6707485363872979	CMakeFiles/leetcode.dir/leetcode_cookbook/array/hello_word.cpp.obj	3298214b887b06f4
-401	540	6707485365235625	leetcode.exe	335d9a2412a40abf
-4	352	6707485763215684	CMakeFiles/leetcode.dir/leetcode_cookbook/array/hello_word.cpp.obj	3298214b887b06f4
-4	354	6707487499715699	CMakeFiles/leetcode.dir/leetcode_cookbook/array/hello_word.cpp.obj	3298214b887b06f4
-3	340	6707488572926026	CMakeFiles/leetcode.dir/leetcode_cookbook/array/hello_word.cpp.obj	3298214b887b06f4
-341	474	6707488574212591	leetcode.exe	335d9a2412a40abf
+1	424	6707577950611215	CMakeFiles/leetcode.dir/leetcode_cookbook/array/hello_word.cpp.obj	3298214b887b06f4
