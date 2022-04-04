@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.21)
-project(leetcode)
+project(leetcode_cookbook)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(leetcode array/hello_word.cpp)
+add_executable(leetcode leetcode_cookbook/array/hello_word.cpp)
