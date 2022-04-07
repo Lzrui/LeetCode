@@ -5,6 +5,7 @@
 #include <queue>
 #include <iostream>
 using namespace std;
+//拓扑排序
 class Solution {
  public:
   static vector<int> findMinHeightTrees(int n, vector<vector<int>>& edges) {
