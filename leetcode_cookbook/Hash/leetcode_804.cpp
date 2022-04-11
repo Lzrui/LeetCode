@@ -5,7 +5,7 @@
 #include <unordered_set>
 #include <vector>
 using namespace std;
-//反向计算
+//哈希表
 const static string MORSE[] = {
         ".-", "-...", "-.-.", "-..", ".", "..-.", "--.",
         "....", "..", ".---", "-.-", ".-..", "--", "-.",
