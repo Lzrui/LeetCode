@@ -1,0 +1,42 @@
+#include <vector>
+#include <unordered_map>
+#include <iostream>
+using namespace std;
+//变长数组+哈希表
+class RandomizedSet {
+ public:
+  RandomizedSet() {
+    srand((unsigned)time(0));
+  }
+
+  bool insert(int val) {
+    if (indices.count(val)) {
+      return false;
+    }
+    int index = nums.size();
+    nums.emplace_back(val);
+    indices[val] = index;
+    return true;
+  }
+
+  bool remove(int val) {
+    if (!indices.count(val)) {
+      return false;
+    }
+    int index = indices[val];
+    int last = nums.back();
+    nums[index] = last;
+    indices[last] = index;
+    nums.pop_back();
+    indices.erase(val);
+    return true;
+  }
+
+  int getRandom() {
+    int randomIndex = rand()%nums.size();
+    return nums[randomIndex];
+  }
+ private:
+  vector<int> nums;
+  unordered_map<int, int> indices;
+};
