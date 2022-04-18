@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.21)
 project(leetcode_cookbook)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 
 add_executable(leetcode leetcode_cookbook/Stack_DFS/leetcode_386.cpp)
