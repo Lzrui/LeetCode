@@ -3,4 +3,4 @@ project(leetcode_cookbook)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(leetcode leetcode_cookbook/String/leetcode_824.cpp)
+add_executable(leetcode leetcode_cookbook/Math/leetcode_396.cpp)
