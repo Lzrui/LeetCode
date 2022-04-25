@@ -3,4 +3,4 @@ project(leetcode_cookbook)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(leetcode leetcode_101/Greedy/test_1.cpp)
+add_executable(leetcode leetcode_101/Greedy/Candy.cpp)
