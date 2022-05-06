@@ -3,4 +3,4 @@ project(leetcode_cookbook)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(leetcode  leetcode_cookbook/Array/leetcode_713.cpp)
+add_executable(leetcode  leetcode_cookbook/Queue/leetcode_933.cpp)
