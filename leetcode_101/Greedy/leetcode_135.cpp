@@ -1,4 +1,3 @@
-
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -27,7 +26,8 @@ class Solution {
 
 int main()
 {
-  vector<int> ratings = {1,2,2};
+  vector<int> ratings = {1,0,2};
   cout << Solution::candy(ratings) << endl;
+  system("pause");
   return 0;
 }
