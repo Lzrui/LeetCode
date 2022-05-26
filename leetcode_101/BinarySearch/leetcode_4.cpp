@@ -33,6 +33,7 @@ class Solution {
       }
 
       // 正常情况
+      //注意：新的index不能超过数组范围，故为min(指向从当前index指向包含k/2个元素的区间右端点,size()-1)
       int newIndex1 = min(index1 + k / 2 - 1, m - 1);
       int newIndex2 = min(index2 + k / 2 - 1, n - 1);
       int pivot1 = nums1[newIndex1];
