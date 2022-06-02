@@ -54,6 +54,6 @@ int main(){
   TreeNode c(6, nullptr,&z);
   TreeNode a(5,&b,&c);
   Solution test;
-  TreeNode* res =  test.deleteNode(&a,5);
+  TreeNode* res =  test.deleteNode(&a,7);
   return 0;
 }
