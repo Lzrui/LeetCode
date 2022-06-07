@@ -2,43 +2,29 @@
 
 using namespace std;
 
-  struct TreeNode {
-      int val;
-      TreeNode *left;
-      TreeNode *right;
-      TreeNode() : val(0), left(nullptr), right(nullptr) {}
-     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-      TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-  };
-
 class Solution {
  public:
-  void construct_paths(TreeNode* root, string path, vector<string>& paths) {
-    if (root != nullptr) {
-      path += to_string(root->val);
-      if (root->left == nullptr && root->right == nullptr) {  // 当前节点是叶子节点
-        paths.push_back(path);                              // 把路径加入到答案中
-      } else {
-        path += "->";  // 当前节点不是叶子节点，继续递归遍历
-        construct_paths(root->left, path, paths);
-        construct_paths(root->right, path, paths);
-      }
-    }
+// 主函数
+  vector<vector<int>> permute(vector<int>& nums) {
+    vector<vector<int>> ans;
+    backtracking(nums, 0, ans);
+    return ans;
   }
-
-  vector<string> binaryTreePaths(TreeNode* root) {
-    vector<string> paths;
-    construct_paths(root, "", paths);
-    return paths;
-  }
+// 辅函数
+  void backtracking(vector<int> &nums, int level, vector<vector<int>> &ans) {
+    if (level == nums.size() - 1) {
+      ans.push_back(nums);
+      return; }
+    for (int i = level; i < nums.size(); i++) {
+      swap(nums[i], nums[level]); // 修改当前节点状态
+      backtracking(nums, level+1, ans); // 递归子节点
+      swap(nums[i], nums[level]); // 回改当前节点状态
+    } }
 };
 
 int main(){
-  TreeNode a(5),b(2),c(3),d(1);
-  b.right = &a;
-  d.left = &b;
-  d.right = &c;
+  vector<int> nums = {1,2,3};
   Solution test;
-  vector<string> res =  test.binaryTreePaths(&d);
+  vector<vector<int>> res = test.permute(nums);
   return 0;
 }
