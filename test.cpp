@@ -4,27 +4,41 @@ using namespace std;
 
 class Solution {
  public:
-// 主函数
-  vector<vector<int>> permute(vector<int>& nums) {
-    vector<vector<int>> ans;
-    backtracking(nums, 0, ans);
-    return ans;
+  int minEatingSpeed(vector<int>& piles, int h) {
+    int low = 1;
+    int high = 0;
+    for (int pile : piles) {
+      high = max(high, pile);
+    }
+    int k = high;
+    while (low < high) {
+      int speed = (high - low) / 2 + low;
+      long time = getTime(piles, speed);
+      if (time <= h) {
+        k = speed;
+        high = speed;
+      } else {
+        low = speed + 1;
+      }
+    }
+    return k;
   }
-// 辅函数
-  void backtracking(vector<int> &nums, int level, vector<vector<int>> &ans) {
-    if (level == nums.size() - 1) {
-      ans.push_back(nums);
-      return; }
-    for (int i = level; i < nums.size(); i++) {
-      swap(nums[i], nums[level]); // 修改当前节点状态
-      backtracking(nums, level+1, ans); // 递归子节点
-      swap(nums[i], nums[level]); // 回改当前节点状态
-    } }
+
+  long getTime(const vector<int>& piles, int speed) {
+    long time = 0;
+    for (int pile : piles) {
+      int curTime = (pile + speed - 1) / speed;
+      time += curTime;
+    }
+    return time;
+  }
 };
 
+
 int main(){
-  vector<int> nums = {1,2,3};
+  vector<int> piles  = {3,6,7,11};
+  int h = 8;
   Solution test;
-  vector<vector<int>> res = test.permute(nums);
+  cout << test.minEatingSpeed(piles,h) << endl;
   return 0;
 }
