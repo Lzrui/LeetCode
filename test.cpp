@@ -9,7 +9,7 @@ class Solution {
     int n = mat[0].size();
     vector<int> res;
     for (int i = 0; i < m + n - 1; i++) {
-      if (i % 2) {
+      if (i & 1) {
         int x = i < n ? 0 : i - n + 1;
         int y = i < n ? i : n - 1;
         while (x < m && y >= 0) {
