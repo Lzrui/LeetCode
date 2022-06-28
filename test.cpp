@@ -19,7 +19,7 @@ class Solution {
 };
 
 int main(){
-  vector<int> nums = {4,5,5,6};
+  vector<int> nums = {1,1,1,2,4};
   Solution::wiggleSort(nums);
   return 0;
 }
