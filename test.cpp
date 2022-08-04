@@ -15,6 +15,9 @@ class Solution {
 };
 
 int main(){
+  auto lam =[]() -> int { cout << "Hello, World!"; return 88; };
+  auto ret = lam();
+  cout<<ret<<endl; // ᬌڊ88
   int n = 5;
   vector<int> res = Solution::countBits(n);
   return 0;
