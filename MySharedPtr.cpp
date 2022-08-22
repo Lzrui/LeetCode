@@ -47,7 +47,7 @@ template <typename T>
 MySharedPtr<T> &MySharedPtr<T>::operator= (MySharedPtr<T> &other) {
   if (&other == this)
     return *this;
-  if(--*count == 0) {
+  if (--*count == 0) {
     delete count;
     delete ptr;
   }
@@ -60,7 +60,7 @@ template <typename T>
 MySharedPtr<T> &MySharedPtr<T>::operator= (T *other) {
   if (other == ptr)
     return *this;
-  if(--*count == 0) {
+  if (--*count == 0) {
     delete count;
     delete ptr;
   }
