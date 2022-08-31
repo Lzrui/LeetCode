@@ -13,20 +13,24 @@ struct TreeNode {
 
 class Solution {
  public:
-  bool isSymmetric(TreeNode* root) {
-    return root == nullptr || isSymmetric(root->left, root->right);
+  int diameterOfBinaryTree(TreeNode* root) {
+    helper(root);
+    return ans;
   }
 
-  bool isSymmetric(TreeNode *left, TreeNode *right) {
-    if (!left && !right)
-      return true;
-    if (!left || !right)
-      return false;
-    if (left->val != right->val)
-      return false;
-    return isSymmetric(left->left, right->right) && isSymmetric(left->right, right->left);
+  int helper(TreeNode *root) {
+    if (!root)
+      return 0;
+    int left = helper(root->left);
+    int right = helper(root->right);
+    ans = max(ans, left + right);
+    return max(left, right) + 1;
   }
+
+ private:
+  int ans = 0;
 };
+
 
 int main() {
   return 0;

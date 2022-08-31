@@ -13,22 +13,25 @@ struct TreeNode {
 
 class Solution {
  public:
-  bool isSymmetric(TreeNode* root) {
-    return root == nullptr || isSymmetric(root->left, root->right);
+  bool isBalanced(TreeNode* root) {
+    return dfs(root) != -1;
   }
 
-  bool isSymmetric(TreeNode *left, TreeNode *right) {
-    if (!left && !right)
-      return true;
-    if (!left || !right)
-      return false;
-    if (left->val != right->val)
-      return false;
-    return isSymmetric(left->left, right->right) && isSymmetric(left->right, right->left);
+  int dfs(TreeNode *root) {
+    if (!root)
+      return 0;
+    int left = dfs(root->left), right = dfs(root->right);
+    if (left == -1 || right == -1 || abs(left - right) > 1)
+      return -1;
+    return max(left, right) + 1;
   }
+
 };
 
+
 int main() {
+  Solution test;
+  bool res = test.isBalanced(nullptr);
   return 0;
 }
 

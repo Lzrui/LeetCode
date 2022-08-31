@@ -13,20 +13,11 @@ struct TreeNode {
 
 class Solution {
  public:
-  bool isSymmetric(TreeNode* root) {
-    return root == nullptr || isSymmetric(root->left, root->right);
-  }
-
-  bool isSymmetric(TreeNode *left, TreeNode *right) {
-    if (!left && !right)
-      return true;
-    if (!left || !right)
-      return false;
-    if (left->val != right->val)
-      return false;
-    return isSymmetric(left->left, right->right) && isSymmetric(left->right, right->left);
+  int maxDepth(TreeNode* root) {
+    return root? max(maxDepth(root->left), maxDepth(root->right)) + 1: 0;
   }
 };
+
 
 int main() {
   return 0;
