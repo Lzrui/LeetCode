@@ -13,18 +13,25 @@ struct TreeNode {
 
 class Solution {
  public:
-  bool isSymmetric(TreeNode* root) {
-    return root == nullptr || isSymmetric(root->left, root->right);
+  TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+    if (preorder.empty())
+      return nullptr;
+    int n = preorder.size();
+    unordered_map<int, int> InOrder;
+    for (int i = 0; i < n; ++i) {
+      InOrder[inorder[i]] = i;
+    }
+    return helper(preorder, InOrder, 0, n - 1, 0);
   }
 
-  bool isSymmetric(TreeNode *left, TreeNode *right) {
-    if (!left && !right)
-      return true;
-    if (!left || !right)
-      return false;
-    if (left->val != right->val)
-      return false;
-    return isSymmetric(left->left, right->right) && isSymmetric(left->right, right->left);
+  TreeNode* helper(vector<int> &preorder, unordered_map<int, int> &InOrder, int left, int right, int pos) {
+    if (left > right)
+      return nullptr;
+    int mid = preorder[pos], index = InOrder[mid], left_len = index - left;
+    TreeNode *node = new TreeNode(mid);
+    node->left = helper(preorder, InOrder, left, index - 1, pos + 1);
+    node->right = helper(preorder, InOrder, index + 1, right, pos + left_len + 1);
+    return node;
   }
 };
 
