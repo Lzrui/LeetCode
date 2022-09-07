@@ -2,40 +2,62 @@
 
 using namespace std;
 
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
-
 class Solution {
  public:
-  TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
-    if (preorder.empty())
-      return nullptr;
-    int n = preorder.size();
-    unordered_map<int, int> InOrder;
-    for (int i = 0; i < n; ++i) {
-      InOrder[inorder[i]] = i;
+  string reorderSpaces(string text) {
+    int n = text.size();
+    vector<string> words = split(text, ' ');
+    int cntSpace = n;
+    int wordCount = 0;
+    for (auto & word : words) {
+      if (word.size() > 0) {
+        cntSpace -= word.size();
+        ++wordCount;
+      }
     }
-    return helper(preorder, InOrder, 0, n - 1, 0);
+
+    string ans;
+    if (words.size() == 1) {
+      ans.append(words[0]);
+      ans.append(cntSpace, ' ');
+      return ans;
+    }
+    int preSpace = cntSpace / (wordCount - 1);
+    int restSpace = cntSpace % (wordCount - 1);
+    for (auto & word : words) {
+      if (ans.size() > 0) {
+        ans.append(preSpace, ' ');
+      }
+      ans.append(word);
+    }
+    ans.append(restSpace, ' ');
+    return ans;
   }
 
-  TreeNode* helper(vector<int> &preorder, unordered_map<int, int> &InOrder, int left, int right, int pos) {
-    if (left > right)
-      return nullptr;
-    int mid = preorder[pos], index = InOrder[mid], left_len = index - left;
-    TreeNode *node = new TreeNode(mid);
-    node->left = helper(preorder, InOrder, left, index - 1, pos + 1);
-    node->right = helper(preorder, InOrder, index + 1, right, pos + left_len + 1);
-    return node;
+  vector<string> split(string &str, char ch) {
+    int n = str.size();
+    vector<string> ans;
+    int pos = 0;
+    while (pos < n) {
+      while (pos < n && str[pos] == ch) {
+        ++pos;
+      }
+      if (pos < n) {
+        int curr = pos;
+        while (pos < n && str[pos] != ch) {
+          ++pos;
+        }
+        ans.emplace_back(str.substr(curr, pos - curr));
+      }
+    }
+    return ans;
   }
 };
 
 int main() {
+  Solution test;
+  string text(" practice   makes   perfect");
+  string ans = test.reorderSpaces(text);
   return 0;
 }
 
